@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>EBGIS Dashboard mit Suche & Akkordeons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f4f8;
+    }
+    h1 {
+      color: #003366;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 20px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    details {
+      margin-bottom: 15px;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    summary {
+      padding: 10px;
+      background: #003366;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 4px 4px 0 0;
+    }
+    ul {
+      padding: 15px 20px;
+      margin: 0;
+    }
+    li {
+      margin: 6px 0;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>EBGIS Dashboard</h1>
+  <input type="text" id="searchInput" placeholder="Suche nach Stichwort oder Titel...">
+
+  <!-- Beispiel: Handbook and Procedures -->
+  <details open>
+    <summary>📘 Handbook and Procedures</summary>
+    <ul>
+      <li><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared Documents/24-25 Staff Folder/Dashboard Files/EBGIS Employee Handbook.docx?d=wec0694f639084a4eb0ce3911400ac088&csf=1&web=1&e=fJqqoy" target="_blank">Employee Handbook</a></li>
+      <li><a href="https://ebgis.sharepoint.com/:b:/s/Admissions/EaJv8GyCdotDlV1u--3UfCYB6TIji1NTP6VmubzB3w_mYg?e=hB3DF2" target="_blank">Family Handbook</a></li>
+      <li><a href="https://ebgis.sharepoint.com/sites/Admissions/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FAdmissions%2FShared%20Documents%2FFamily%20Handbook%2FFamily%20Handbook%2024%2D25%2FEBGIS%5FFamily%5FHandbook%5F%2D%5FPreschool%5FAddendum%5F202305%2Epdf&parent=%2Fsites%2FAdmissions%2FShared%20Documents%2FFamily%20Handbook%2FFamily%20Handbook%2024%2D25&p=true&ga=1" target="_blank">Family Handbook Preschool Addendum (2023)</a></li>
+  <li><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Handbook%20and%20Procedures/Morning%20Meeting%20and%20Homeroom%20Teacher%20Expectations.docx?d=w78e4cb56c26b43fabe22393c8ae59b7b&csf=1&web=1&e=HYQCy6" target="_blank">Morning Meeting and Homeroom - Expectations and Guidelines</a></li>
+  <li>Arrival/Dismissal Procedures (no document)</li>
+  <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/shedrick_ebgis_org/EW-ouWD3BZBOsRYpDUZzRMoBsUg0h9BDj0-qm3ha3AshCQ?e=OlWaey" target="_blank">End-of-Day Procedures (Sam)</a></li>
+  <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/krudd_ebgis_org/EUNh7de4pa1EkI_iw3hMtcIBfbe6Qla-n6Z_ycdk7sLChg?e=Tj8T2L" target="_blank">Communication Expectations (Kaylene)</a></li>
+  <li><a href="https://ebgis.sharepoint.com/:w:/s/Operations2/EdD1CRffIJJBuwHXZKVuaGwBMezZM-EieCLTkv-Es_nbkw?e=hdHX2s" target="_blank">Safety/Emergency Handbook (from 2023)</a></li>
+  <li>Attendance and Absences (no document)</li>
+  <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/krudd_ebgis_org/EYjNLnbE6NxIs55mfgARGNkB-fTpaTHD4p5sgkvQYd87Vg?e=Tggfgt" target="_blank">Leadership Roles and Responsibilities (Kaylene)</a></li>
+</ul>
+  </details>
+
+  <!-- Weitere Kategorien hier -->
+  <details>
+    <summary>📚 Curriculum and Resources</summary>
+    <ul>
+  <li>Studio Document (Grades 1–4)</li>
+  <li>MS Bewertungskriterien / Rubrics</li>
+  <li>Field Trip Resource Guide</li>
+  <li>Lesson Plan – Basic Template</li>
+  <li>Differentiation</li>
+  <li>Inquiry / Reflection Strategies</li>
+  <li><a href="https://ebgis.sharepoint.com/:w:/r/sites/Curriculum/_layouts/15/Doc.aspx?sourcedoc=%7BF8D43BA4-9263-4A59-A65C-1C533E06E089%7D&file=Course%20Briefs%202024-25.docx&action=default&mobileredirect=true" target="_blank">Course Briefs 2023/2024/2025</a></li>
+  <li>Parent Teacher Conference Protocol</li>
+  <li>Report Card Conferences Protocol</li>
+  <li>Student Reflections (for PTC)</li>
+  <li>Standardized Tests schedule (1–10th)</li>
+  <li>Kompetenzen Thüringer</li>
+  <li>Template EBGIS 1st–12th</li>
+  <li>Blank Calendar</li>
+  <li>Managebac Weeks Calendar</li>
+  <li><a href="https://ebgis-my.sharepoint.com/personal/krudd_ebgis_org/_layouts/15/doc.aspx?sourcedoc=%7b2d00ec58-a53b-4712-a094-3419294214b7%7d&action=edit" target="_blank">EBGIS Resource Inventory</a></li>
+</ul>
+  </details>
+
+  <details>
+    <summary>🗂️ Common Forms</summary>
+    <ul>
+  <li><a href="https://ebgis.sharepoint.com/sites/Office/Shared Documents/Forms/AllItems.aspx?FolderCTID=0x01200074EEB687BA85D84189113E6C054CAE61&id=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms%2FEBGIS%20Student%20Absence%20Request%20Form%2Epdf&parent=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms" target="_blank">Student Absence Request Form</a></li>
+  <li><a href="https://forms.office.com/r/nNScnuTPyX" target="_blank">Purchase Order Request Form</a></li>
+  <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=QcFP0J4Y_0yrQWcXSRl9i5IiGKnoM_VDkg84aNjgssFUOUZMUk5LMjJOOFlSOTVLNzcyMFdYUUJYMy4u" target="_blank">Field Trip Request Form</a></li>
+  <li><a href="https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&FormId=QcFP0J4Y_0yrQWcXSRl9i5IiGKnoM_VDkg84aNjgssFUMERQVEtSN0FWSFRYQ1pVN0pDTVJUUzFMMy4u" target="_blank">Early Childhood Paid Time Off Request Form</a></li>
+  <li>Counselor Referral</li>
+  <li>Academic Concern Report</li>
+  <li><a href="https://ebgis.sharepoint.com/sites/Office/Shared Documents/Forms/AllItems.aspx?id=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms%2FEBGIS%20Injury%20Report%20Form%2Epdf&parent=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms" target="_blank">Injury Report</a></li>
+  <li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Common%20Forms/EBGIS%20Incident%20Report.pdf?csf=1&web=1&e=fRcZRO" target="_blank">Incident Report</a></li>
+  <li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/shedrick_ebgis_org/_layouts/15/Doc.aspx?sourcedoc=%7B70F3B7B9-4DED-46D5-9282-64FF323977C7%7D&file=EBGIS%20End%20of%20Year%20Checkout%20List.docx&action=default&mobileredirect=true&wdsle=0" target="_blank">End of Year Checkout</a></li>
+  <li><a href="https://ebgis.sharepoint.com/:b:/r/sites/NewtoEBGISStaffDevelopment/Shared Documents/Budget 2024-2025.pdf?csf=1&web=1&e=uGtxws" target="_blank">24-25 EBGIS Budget</a></li>
+  <li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/krudd_ebgis_org/Documents/Preschool Conference Form.docx?d=waaa6ebb5c33446f59e83bab68a6d8d90&csf=1&web=1&e=OMy3gO" target="_blank">Preschool Conference Form</a></li>
+</ul>
+  </details>
+
+<details>
+    <summary>🎉 Committees and Event Plans</summary>
+    <ul>
+      <li>Committee Chairs and Stipend Roles</li>
+      <li>Committee Descriptions and Role Expectations</li>
+      <li><a href="https://ebgis.sharepoint.com/:x:/r/sites/Communications/_layouts/15/Doc.aspx?sourcedoc=%7BF603E33A-0D65-4E67-AE8A-D6E1D26857C8%7D&file=EBGIS%20Event%20Planner.xlsx&fromShare=true&action=default&mobileredirect=true" target="_blank">Event Planner (for Chairs)</a></li>
+    </ul>
+  </details>
+
+<details>
+    <summary>⏰ Schedules and 🗓️ Calendar</summary>
+    <ul>
+   <li>Early Years Daily Schedule</a></li>
+  <li>Preschool Work Schedules</a></li>
+  <li>Master Schedule – 1st–12th Grade</a></li>
+  <li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/dklimetschek_ebgis_org/Documents/Supervision Grades 1-12new.docx?d=w7107c19bd5184e3c9c0b857942553dd8&csf=1&web=1&e=qbB4Fv" target="_blank">Supervision Schedule – 1st–12th Grade (2024)</a></li>
+  <li>Early Dismissal Schedule – Whole School</a></li>
+<li><a href="https://www.ebgis.org/uploaded/Calendars/2025-2026_School_Calendar.pdf" target="_blank">EBGIS 25–26 Calendar</a></li>
+  <li>Professional Dev Calendar 25–26</a></li>
+  <li>Assessment Calendar (needed?)</a></li>
+  <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/cmueller_ebgis_org/EV0ViLPa5idIsjLUnjnATZ8B6sn6z44s5uFzdoyOhDLUkQ?e=4Ncb2E" target="_blank">Standardized and Diagnostic Tests (Claudia)</a></li>
+
+    </ul>
+  </details>
+
+<details>
+    <summary>🎨  Enrichment and Extended Day</summary>
+ <ul>
+  <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=QcFP0J4Y_0yrQWcXSRl9i4rArGwEZJ5LvWGKyZbHic5UMFBXWVlVWTlaMVFOVzdZMkZRM1hUTlc3Sy4u" target="_blank">Enrichment Class Proposal Form</a></li>
+  <li>Enrichment Class List and Descriptions</a></li>
+  <li>Enrichment Schedule</a></li>
+  <li>Extended Day Student List</a></li>
+  <li><a href="https://ebgis.sharepoint.com/:w:/s/AllStaff/ET-UdrZrvP9Em_QOror68eQB53lHnF3NHAw-tKShY0MmPQ?e=dQBSgk" target="_blank">Enrich/Extended Learning Procedure (2024)</a></li>
+</ul>
+  </details>
+
+<details>
+    <summary>🤗  Student Support, SEL and Discipline</summary>
+<ul>
+  <li>Student Roster – Learning Support</li>
+  <li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Student%20Support%20SEL%20and%20Discipline/EBGIS%20Displine%20Matrix.pdf?csf=1&web=1&e=rnN50O" target="_blank">Discipline Matrix</a></li>
+  <li>Morning Meeting / Homeroom Slides</li>
+  <li><a href="https://app.withwayfinder.com/login" target="_blank">Wayfinder Resources</a></li>
+  <li><a href="https://faria.s3.amazonaws.com/ManageBac/School+Setup/How+to+add+a+Behavioural+Note.mp4" target="_blank">Add a Student Behavior Note in ManageBac</a></li>
+  <li>Positive Discipline Resource Folder</li>
+  <li><a href="https://forms.office.com/r/GZAfCMfkRQ?origin=lprLink" target="_blank">Counseling Referral Form</a></li>
+  <li><a href="https://ebgis-my.sharepoint.com/:b:/g/personal/tsimmons_ebgis_org/Ea8v-pw0F-hPmvRja1x2D6MBtmkikF_fVV1G-tG23VFdmA?e=E359as" target="_blank">Student Observation by teacher (Taylor)</a></li>
+  <li><a href="https://ebgis-my.sharepoint.com/:b:/g/personal/tsimmons_ebgis_org/EUvF2ASgpY9AloorQhashDsBtGefa7aBm2UCSIh1ofENEg?e=FzjIbB" target="_blank">Classroom Observation (Taylor)</a></li>
+  <li>IB Access and Inclusion policy (link does not work)</li>
+</ul>
+  </details>
+
+<details>
+    <summary>⚖️  Policies and Practices</summary>
+<ul>
+  <li>Mission and Values</li>
+  <li>Language Immersion</li>
+  <li>Instrument &amp; School Property Policy</li>
+  <li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/jneumann_ebgis_org/Documents/EBGIS%20Assessment%20Policy.docx?d=w9da6f1a41c784b3b92bd77923a4f36c1&csf=1&web=1&e=vSoEVO" target="_blank">Assessment Policy (Julia)</a></li>
+  <li>Grading Criteria (5–10th) (Jenny, link does not work)</li>
+  <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/krudd_ebgis_org/EZzK6BXRfGZLsMaykBaHaBoBmw1k-4m__Al07TOyEXeDbQ?e=gmV2T5" target="_blank">Academic Integrity Policy (Kaylene)</a></li>
+  <li>Nut Free School</li>
+  <li>Technology Use Agreement</li>
+  <li>Homework Policy (Jenny, link does not work)</li>
+</ul>
+  </details>
+
+<details>
+    <summary>🔗  Links and Portals</summary>
+ <ul>
+  <li><a href="https://www.parentsquare.com/signin" target="_blank">ParentSquare</a></li>
+  <li><a href="https://ebgis.managebac.com/" target="_blank">ManageBac Login</a></li>
+  <li><a href="https://www.ixl.com/signin" target="_blank">IXL</a></li>
+  <li><a href="https://app.withwayfinder.com/login" target="_blank">Wayfinder</a></li>
+  <li><a href="https://www.antolin.com/en/user/login/1000" target="_blank">Antolin</a></li>
+  <li><a href="https://ebgis.sharepoint.com/sites/EBGISPhotos" target="_blank">Photos</a></li>
+  <li>Student Image Sharing Consent 24‑25</a></li>
+  <li><a href="https://ebgis-ca.safeschools.com/login" target="_blank">Vector Training Portal</a></li>
+  <li><a href="https://www.canva.com/login/" target="_blank">Canva</a></li>
+  <li><a href="https://account.adobe.com" target="_blank">Adobe</a></li>
+</ul>
+  </details>
+
+<details>
+    <summary>🧑‍🏫  Substitute Teaching</summary>
+ <ul>
+  <li>Preschool Substitution Protocols</a></li>
+  <li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Substitute%20Teaching?csf=1&web=1&e=YdnR46" target="_blank">Substitute Welcome Email</a></li>
+  <li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Substitute%20Teaching?csf=1&web=1&e=YdnR46" target="_blank">Statement of Acknowledgement</a></li>
+  <li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Substitute%20Teaching?csf=1&web=1&e=YdnR46" target="_blank">Whole School Substitute Handbook</a></li>
+</ul>
+  </details>
+
+  <!-- Du kannst beliebig viele <details> ... </details> Abschnitte hinzufügen -->
+
+  <script>
+    // Live-Filterfunktion für die Suchleiste
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const filter = this.value.toLowerCase();
+      const details = document.querySelectorAll('details');
+
+      details.forEach(section => {
+        let hasMatch = false;
+        const items = section.querySelectorAll('li');
+
+        items.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          const matches = text.includes(filter);
+          item.style.display = matches ? '' : 'none';
+          if (matches) hasMatch = true;
+        });
+
+        section.style.display = hasMatch ? '' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>

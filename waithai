@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mittagsmenüs</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    max-width:900px;
+    margin:0 auto;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.menu-card{
+    background:#fff;
+    border:1px solid #e5e5e5;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+.menu-date{
+    font-size:1.3rem;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.menu-item{
+    padding:8px 0;
+    border-bottom:1px solid #f0f0f0;
+}
+
+.menu-item:last-child{
+    border-bottom:none;
+}
+</style>
+</head>
+<body>
+
+<h1>Mittagsmenüs</h1>
+
+<div id="menus">
+    Menüs werden geladen...
+</div>
+
+<script>
+
+// DEINE SHEET-ID
+const SHEET_ID = "1hxTzJZQp9r22wvH3Kv9EPfeHKMaqACeAqtn6C9CTZT8";
+
+// Erstes Tabellenblatt
+const CSV_URL =
+`https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
+
+async function loadMenus(){
+
+    try{
+
+        const response = await fetch(CSV_URL);
+        const csv = await response.text();
+
+        const rows = csv
+            .split('\n')
+            .map(row => row.split(','));
+
+        // Erwartete Struktur:
+        // Datum | Menü1 | Menü2 | Menü3
+
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        let html = '';
+
+        const futureMenus = rows
+            .slice(1)
+            .map(row => ({
+                date: new Date(row[0]),
+                dateText: row[0],
+                menu1: row[1],
+                menu2: row[2],
+                menu3: row[3]
+            }))
+            .filter(menu => menu.date >= today)
+            .sort((a,b) => a.date - b.date)
+            .slice(0,5);
+
+        futureMenus.forEach(menu => {
+
+            html += `
+                <div class="menu-card">
+                    <div class="menu-date">${menu.dateText}</div>
+
+                    <div class="menu-item">
+                        <strong>Menü 1:</strong> ${menu.menu1}
+                    </div>
+
+                    <div class="menu-item">
+                        <strong>Menü 2:</strong> ${menu.menu2}
+                    </div>
+
+                    <div class="menu-item">
+                        <strong>Menü 3:</strong> ${menu.menu3}
+                    </div>
+                </div>
+            `;
+        });
+
+        if(html === ''){
+            html = '<p>Zurzeit sind keine Menüs verfügbar.</p>';
+        }
+
+        document.getElementById('menus').innerHTML = html;
+
+    } catch(error){
+
+        document.getElementById('menus').innerHTML =
+            'Fehler beim Laden des Menüplans.';
+        console.error(error);
+
+    }
+}
+
+loadMenus();
+
+</script>
+
+</body>
+</html>

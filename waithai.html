@@ -80,14 +80,23 @@ async function loadMenus(){
         let html = '';
 
         const futureMenus = rows
-            .slice(1)
-            .map(row => ({
-                date: new Date(row[0]),
-                dateText: row[0],
-                menu1: row[1],
-                menu2: row[2],
-                menu3: row[3]
-            }))
+    .slice(1)
+    .map(row => {
+
+        const date = new Date(row[0]);
+
+        return {
+            date,
+            dateText: date.toLocaleDateString('de-DE', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long'
+            }),
+            menu1: row[1],
+            menu2: row[2],
+            menu3: row[3]
+        };
+    })
             .filter(menu => menu.date >= today)
             .sort((a,b) => a.date - b.date)
             .slice(0,5);

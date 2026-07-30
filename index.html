@@ -5,62 +5,232 @@
   <title>EBGIS Dashboard 2026-27</title>
   <link rel="icon" href="favicon_EBGIS.ico" type="image/x-icon">
   <style>
+    :root {
+      --ebgis-blue: #003366;
+      --ebgis-blue-light: #0b5fa5;
+      --ebgis-sky: #eaf2f8;
+      --ebgis-bg: #f4f7fb;
+      --ebgis-text: #243447;
+      --ebgis-muted: #66788a;
+      --ebgis-white: #ffffff;
+      --ebgis-border: #d9e3ec;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f0f4f8;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--ebgis-bg);
+      color: var(--ebgis-text);
+      line-height: 1.5;
     }
-    h1 {
-      color: #003366;
+
+    .dashboard-header {
+      background: linear-gradient(135deg, var(--ebgis-blue) 0%, var(--ebgis-blue-light) 100%);
+      color: var(--ebgis-white);
+      padding: 34px 24px 28px;
+      box-shadow: 0 4px 18px rgba(0, 51, 102, 0.18);
     }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-logo {
+      width: 150px;
+      max-width: 32vw;
+      height: auto;
+      background: rgba(255,255,255,0.96);
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .header-text p {
+      margin: 10px 0 0;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .dashboard-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 20px 48px;
+    }
+
+    .search-wrap {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .search-wrap::before {
+      content: "🔎";
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+
     input[type="text"] {
       width: 100%;
-      padding: 10px;
-      margin: 20px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      padding: 15px 18px 15px 46px;
+      border: 1px solid var(--ebgis-border);
+      border-radius: 12px;
+      background: var(--ebgis-white);
+      color: var(--ebgis-text);
+      font-size: 1rem;
+      box-shadow: 0 4px 14px rgba(35, 68, 100, 0.08);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
+
+    input[type="text"]:focus {
+      border-color: var(--ebgis-blue-light);
+      box-shadow: 0 0 0 4px rgba(11, 95, 165, 0.12);
+    }
+
     details {
-      margin-bottom: 15px;
-      background: #fff;
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 16px;
+      background: var(--ebgis-white);
+      border: 1px solid var(--ebgis-border);
+      border-left: 6px solid var(--ebgis-blue-light);
+      border-radius: 14px;
+      box-shadow: 0 5px 16px rgba(35, 68, 100, 0.08);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
+    details:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(35, 68, 100, 0.12);
+    }
+
     summary {
-      padding: 10px;
-      background: #003366;
-      color: white;
+      list-style: none;
+      padding: 16px 18px;
+      background: var(--ebgis-white);
+      color: var(--ebgis-blue);
       cursor: pointer;
-      font-weight: bold;
-      border-radius: 4px 4px 0 0;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--ebgis-blue-light);
+      font-weight: 400;
+    }
+
+    details[open] summary {
+      background: var(--ebgis-sky);
+      border-bottom: 1px solid var(--ebgis-border);
+    }
+
+    details[open] summary::after {
+      content: "–";
+    }
+
     ul {
-      padding: 15px 20px;
       margin: 0;
+      padding: 12px 24px 18px 46px;
     }
+
     li {
-      margin: 6px 0;
+      margin: 8px 0;
+      padding-left: 2px;
     }
+
     a {
-      color: #0066cc;
+      color: #075ca8;
       text-decoration: none;
+      font-weight: 600;
     }
-    a:hover {
+
+    a:hover,
+    a:focus {
+      color: var(--ebgis-blue);
       text-decoration: underline;
+    }
+
+    .dashboard-footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 36px;
+      color: var(--ebgis-muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        align-items: flex-start;
+      }
+
+      .header-logo {
+        width: 100px;
+      }
+
+      .header-text p {
+        font-size: 0.95rem;
+      }
+
+      summary {
+        padding: 15px;
+      }
+
+      ul {
+        padding-left: 36px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>EBGIS Dashboard preparing for 2026-27</h1>
-  <input type="text" id="searchInput" placeholder="Search by keyword or title...   (Suche nach Stichwort oder Titel...)">
+  <header class="dashboard-header">
+    <div class="header-inner">
+      <img src="Logo.png" alt="EBGIS Logo" class="header-logo">
+      <div class="header-text">
+        <h1>EBGIS Staff Dashboard</h1>
+        <p>School Year 2026–2027 · Documents, schedules, forms and staff resources in one place</p>
+      </div>
+    </div>
+  </header>
 
-  
+  <main class="dashboard-main">
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Search documents, forms, schedules or keywords...">
+    </div>
 
 <details open>
     <summary>🗓️ Calendar and ⏰ Schedules</summary>
     <ul>
-  <li>Master Schedule including Preschool Work Schedules</a></li>
+  <li>Master Schedule including Preschool Work Schedules</li>
   <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/Edl8wbQHd5JHnCnswAk_7EwBXtI3EouaIOVYKHIdQv2vmA?e=6dUIM1" target="_blank">
     Supervision Schedule Kinder 2026-27</a></li>
 <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/IQBEQmyVj7YFRr22bDxdlThwAX8rHkYIwxBmkCuBimSAh2o?e=YvM65Y" target="_blank">
@@ -81,7 +251,6 @@
       <li><a href="https://ebgis.sharepoint.com/:x:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Committees%20and%20Event%20Plans/Event%20sign%20up%202025-26.xlsx?d=w5f18636136c94a8fae5507f92b877c18&csf=1&web=1&e=ahpSQC" target="_blank">Committee Sign Up List for 2025-26 Events</a></li>
       <li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/bgasser_ebgis_org/Documents/Events/Stipend%20Roles%20Guidelines%20and%20Descriptions.docx?d=w80e5e5cbf2814b2da3a8d2328b6a1551&csf=1&web=1&e=sUQLy3" target="_blank">Committee Descriptions and Role Expectations (2024)</a></li>
       <li><a href="https://ebgis.sharepoint.com/:x:/r/sites/Communications/_layouts/15/Doc.aspx?sourcedoc=%7BF603E33A-0D65-4E67-AE8A-D6E1D26857C8%7D&file=EBGIS%20Event%20Planner.xlsx&fromShare=true&action=default&mobileredirect=true" target="_blank">Event Planner (for Chairs)</a></li>
-    </a>
     </ul>
   </details>
 
@@ -126,6 +295,7 @@
     <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/IQDnMf33CM9GRpOulV1EajGHAV4gXIpFty5AvmqdNsg2k3A?e=2a7g7K" target="_blank">Indoor Games and Activities</a></li>
    <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/ESmOqJOGwiVFjg1Mf3FABe4BSqT8y4S49wlVLxwjL5Oiog?e=IoA0mV" target="_blank">Enrichment and Extended Day Roles and Responsibilities</a></li>
     <li><a href="https://ebgis.sharepoint.com/:i:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Enrichment%20and%20Extended%20Day/Enrichment+Fall+Semster+2025+NEU.jpg?csf=1&web=1&e=8we6C1" target="_blank">Enrichment Classes Schedule</a></li>
+  </ul>
   </details>
   
 <details>
@@ -164,20 +334,9 @@
   <li><a href="https://www.parentsquare.com/signin" target="_blank">ParentSquare</a></li>
   <li><a href="https://get.plickers.com/" target="_blank">Plickers – collect real‑time responses from students</a></li>
   <li><a href="https://namesonwheel.com/" target="_blank">Spinwheel (Glücksrad)</a></li>
-  <li><a href="https://login.trinet.com" target="_blank">Trinet</a> or <a href="https://secure.zenefits.com/accounts/login/" target="_blank">Trinet alternative Link</li>
+  <li><a href="https://login.trinet.com" target="_blank">TriNet</a> or <a href="https://secure.zenefits.com/accounts/login/" target="_blank">TriNet alternative link</a></li>
   <li><a href="https://ebgis-ca.safeschools.com/login" target="_blank">Vector Training Portal</a></li>
   <li><a href="https://app.withwayfinder.com/login" target="_blank">Wayfinder</a></li>
-</ul>
-  </details>
-  
-  <details>
-    <summary>⚖️  Policies and Practices</summary>
-<ul>
-<li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Policies%20and%20Practices?csf=1&web=1&e=4jNqCi" target="_blank">All policies - Link here</a></li>
-<li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/jneumann_ebgis_org/Documents/EBGIS%20Assessment%20Policy.docx?d=w9da6f1a41c784b3b92bd77923a4f36c1&csf=1&web=1&e=vSoEVO" target="_blank">Assessment Policy (Julia)</a></li>
-<li><a href="https://www.ebgis.org/about-us/mission-and-guiding-principles" target="_blank">Mission and Values</a></li>
-<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Policies%20and%20Practices/Terminology%20and%20Style%20Conventions%20draft%202024-08-13.pdf?csf=1&web=1&e=jkUEtS" target="_blank">Professional Communication Expectations</a></li>
-<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Policies%20and%20Practices/Terminology%20and%20Style%20Conventions%20draft%202024-08-13.pdf?csf=1&web=1&e=i68Y7V" target="_blank">Terminology and Style Conventions</a></li>
 </ul>
   </details>
   
@@ -201,7 +360,7 @@
 <details>
     <summary>🧑‍🏫  Substitute Teaching</summary>
  <ul>
-  <li>Preschool Substitution Protocols</a></li>
+  <li>Preschool Substitution Protocols</li>
   <li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Substitute%20Teaching?csf=1&web=1&e=YdnR46" target="_blank">Substitute Welcome Email</a></li>
   <li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Substitute%20Teaching?csf=1&web=1&e=YdnR46" target="_blank">Statement of Acknowledgement</a></li>
   <li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Substitute%20Teaching?csf=1&web=1&e=YdnR46" target="_blank">Whole School Substitute Handbook</a></li>
@@ -230,6 +389,10 @@
     });
   </script>
 
-<img src="Logo.png" alt="Logo" width="300" height="auto">
+  </main>
+
+  <footer class="dashboard-footer">
+    EBGIS Staff Dashboard · School Year 2026–2027
+  </footer>
 </body>
 </html>

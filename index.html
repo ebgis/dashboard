@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>EBGIS Dashboard 2026-27</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EBGIS Staff Dashboard 2026–2027</title>
   <link rel="icon" href="favicon_EBGIS.ico" type="image/x-icon">
   <style>
     :root {
@@ -14,6 +15,8 @@
       --ebgis-muted: #66788a;
       --ebgis-white: #ffffff;
       --ebgis-border: #d9e3ec;
+      --warning-bg: #fff4d6;
+      --warning-text: #805b00;
     }
 
     * {
@@ -72,6 +75,16 @@
       padding: 28px 20px 48px;
     }
 
+    .preview-note {
+      margin-bottom: 20px;
+      padding: 14px 16px;
+      border: 1px solid #d7e4ef;
+      border-radius: 12px;
+      background: #eef6fc;
+      color: #234b6d;
+      font-size: 0.95rem;
+    }
+
     .search-wrap {
       position: relative;
       margin-bottom: 24px;
@@ -105,7 +118,7 @@
       box-shadow: 0 0 0 4px rgba(11, 95, 165, 0.12);
     }
 
-    details {
+    .dashboard-card {
       margin-bottom: 16px;
       background: var(--ebgis-white);
       border: 1px solid var(--ebgis-border);
@@ -116,19 +129,17 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    details:hover {
+    .dashboard-card:hover {
       transform: translateY(-1px);
       box-shadow: 0 8px 22px rgba(35, 68, 100, 0.12);
     }
 
     summary {
       list-style: none;
-      padding: 16px 18px;
+      padding: 17px 18px;
       background: var(--ebgis-white);
       color: var(--ebgis-blue);
       cursor: pointer;
-      font-weight: 700;
-      font-size: 1.05rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -141,7 +152,8 @@
 
     summary::after {
       content: "+";
-      font-size: 1.5rem;
+      flex: 0 0 auto;
+      font-size: 1.55rem;
       line-height: 1;
       color: var(--ebgis-blue-light);
       font-weight: 400;
@@ -156,13 +168,41 @@
       content: "–";
     }
 
+    .summary-content {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 0;
+    }
+
+    .category-icon {
+      width: 34px;
+      text-align: center;
+      font-size: 1.35rem;
+      flex: 0 0 auto;
+    }
+
+    .category-title {
+      display: block;
+      font-weight: 700;
+      font-size: 1.08rem;
+    }
+
+    .category-description {
+      display: block;
+      margin-top: 2px;
+      color: var(--ebgis-muted);
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
     ul {
       margin: 0;
-      padding: 12px 24px 18px 46px;
+      padding: 14px 24px 20px 58px;
     }
 
     li {
-      margin: 8px 0;
+      margin: 9px 0;
       padding-left: 2px;
     }
 
@@ -176,6 +216,43 @@
     a:focus {
       color: var(--ebgis-blue);
       text-decoration: underline;
+    }
+
+    .missing-link {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .badge-missing {
+      background: var(--warning-bg);
+      color: var(--warning-text);
+    }
+
+    .separator {
+      margin: 0 5px;
+      color: var(--ebgis-muted);
+      font-size: 0.9rem;
+    }
+
+    .no-results {
+      display: none;
+      padding: 24px;
+      border-radius: 12px;
+      background: var(--ebgis-white);
+      border: 1px solid var(--ebgis-border);
+      color: var(--ebgis-muted);
+      text-align: center;
     }
 
     .dashboard-footer {
@@ -204,8 +281,12 @@
         padding: 15px;
       }
 
+      .category-description {
+        font-size: 0.84rem;
+      }
+
       ul {
-        padding-left: 36px;
+        padding-left: 42px;
       }
     }
   </style>
@@ -223,176 +304,258 @@
   </header>
 
   <main class="dashboard-main">
-    <div class="search-wrap">
-      <input type="text" id="searchInput" placeholder="Search documents, forms, schedules or keywords...">
+    <div class="preview-note">
+      <strong>Preview version:</strong> This dashboard already reflects the proposed new structure.
+      Current links remain in place while document owners review and update them.
     </div>
 
-<details open>
-    <summary>🗓️ Calendar and ⏰ Schedules</summary>
-    <ul>
-  <li>Master Schedule including Preschool Work Schedules</li>
-  <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/Edl8wbQHd5JHnCnswAk_7EwBXtI3EouaIOVYKHIdQv2vmA?e=6dUIM1" target="_blank">
-    Supervision Schedule Kinder 2026-27</a></li>
-<li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/IQBEQmyVj7YFRr22bDxdlThwAX8rHkYIwxBmkCuBimSAh2o?e=YvM65Y" target="_blank">
-      Supervision Schedule Grades 2026-27</a></li>
-  <li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Calendar%20and%20Schedules/EBGIS%20Calendar%202025-2026.pdf?csf=1&web=1&e=bHeOJs" target="_blank">EBGIS Calendar 2025‑2026 PDF</a></li>
-      <li>
-  <a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Calendar%20and%20Schedules/EBGIS%20EBIHS%20Academic%20Calendar%2026-27.pdf?csf=1&web=1&e=qMnJAk" target="_blank">
-    EBGIS Calendar 2026-2027
-  </a>
-</li>
-  <li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Calendar%20and%20Schedules/2025-2026%20Faculty%20Workday%20Calendar.pdf?csf=1&web=1&e=t8TA03" target="_blank">EBGIS 25–26 internal Faculty Workday Calendar</a></li>
-    </ul>
-  </details>
-  
-  <details>
-    <summary>🎉 Committees and Event Plans</summary>
-    <ul>
-      <li><a href="https://ebgis.sharepoint.com/:x:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Committees%20and%20Event%20Plans/Event%20sign%20up%202025-26.xlsx?d=w5f18636136c94a8fae5507f92b877c18&csf=1&web=1&e=ahpSQC" target="_blank">Committee Sign Up List for 2025-26 Events</a></li>
-      <li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/bgasser_ebgis_org/Documents/Events/Stipend%20Roles%20Guidelines%20and%20Descriptions.docx?d=w80e5e5cbf2814b2da3a8d2328b6a1551&csf=1&web=1&e=sUQLy3" target="_blank">Committee Descriptions and Role Expectations (2024)</a></li>
-      <li><a href="https://ebgis.sharepoint.com/:x:/r/sites/Communications/_layouts/15/Doc.aspx?sourcedoc=%7BF603E33A-0D65-4E67-AE8A-D6E1D26857C8%7D&file=EBGIS%20Event%20Planner.xlsx&fromShare=true&action=default&mobileredirect=true" target="_blank">Event Planner (for Chairs)</a></li>
-    </ul>
-  </details>
+    <div class="search-wrap">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search documents, forms, schedules or keywords..."
+        aria-label="Search dashboard"
+      >
+    </div>
 
-  <details>
-    <summary>🗂️ Common Forms</summary>
-    <ul>
-<li>Academic Concern Report</li>
-<li><a href="https://ebgis.org" target="_blank">Budget 2025/2026 (coming soon)</a></li>
-        <li><a href="https://ebgis.sharepoint.com/:b:/r/sites/NewtoEBGISStaffDevelopment/Shared Documents/Budget 2024-2025.pdf?csf=1&web=1&e=uGtxws" target="_blank">Budget 2024/2025</a></li>
-      <li>Counselor Referral</li>
-<li><a href="https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&FormId=QcFP0J4Y_0yrQWcXSRl9i5IiGKnoM_VDkg84aNjgssFUMERQVEtSN0FWSFRYQ1pVN0pDTVJUUzFMMy4u" target="_blank">Early Childhood Paid Time Off Request Form (Link does not work)</a></li>
-<li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/shedrick_ebgis_org/_layouts/15/Doc.aspx?sourcedoc=%7B70F3B7B9-4DED-46D5-9282-64FF323977C7%7D&file=EBGIS%20End%20of%20Year%20Checkout%20List.docx&action=default&mobileredirect=true&wdsle=0" target="_blank">End of Year Checkout</a></li>
-<li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=QcFP0J4Y_0yrQWcXSRl9i5IiGKnoM_VDkg84aNjgssFUOU4zTVUxTEQ1R0c5RFE3WjFGWEQ3TEFYRi4u" target="_blank">Field Trip Request Form</a></li>
-<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Common%20Forms/EBGIS%20Incident%20Report.pdf?csf=1&web=1&e=fRcZRO" target="_blank">Incident Report</a></li>
-<li><a href="https://ebgis.sharepoint.com/sites/Office/Shared Documents/Forms/AllItems.aspx?id=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms%2FEBGIS%20Injury%20Report%20Form%2Epdf&parent=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms" target="_blank">Injury Report</a></li>
-<li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=QcFP0J4Y_0yrQWcXSRl9i5IiGKnoM_VDkg84aNjgssFUREFUOFdXWDFUVlFZNVpNQzZBWUFEQ1FENS4u" target="_blank">Order Request Form 2025/2026</a></li>
-<li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/krudd_ebgis_org/Documents/Preschool Conference Form.docx?d=waaa6ebb5c33446f59e83bab68a6d8d90&csf=1&web=1&e=OMy3gO" target="_blank">Preschool Conference Form</a></li>
-<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Common%20Forms/SOP%20-%20Reserving%20Rooms.pdf?csf=1&web=1&e=GNLeAP" target="_blank">Room Reservation Guide</a></li>
-<li><a href="https://ebgis.sharepoint.com/sites/Office/Shared Documents/Forms/AllItems.aspx?FolderCTID=0x01200074EEB687BA85D84189113E6C054CAE61&id=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms%2FEBGIS%20Student%20Absence%20Request%20Form%2Epdf&parent=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms" target="_blank">Student Absence Request Form</a></li>
-  </ul>
-  </details>
+    
+    <details class="dashboard-card">
+      <summary>
+        <span class="summary-content">
+          <span class="category-icon" aria-hidden="true">📅</span>
+          <span>
+            <span class="category-title">Daily Operations</span>
+            <span class="category-description">Calendars, schedules and information for the daily school routine.</span>
+          </span>
+        </span>
+      </summary>
+      <ul>
+        <li class="missing-link"><span>Master Schedule including Preschool Work Schedules</span><span class="badge badge-missing">Link pending</span></li>
+<li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/Edl8wbQHd5JHnCnswAk_7EwBXtI3EouaIOVYKHIdQv2vmA?e=6dUIM1" target="_blank" rel="noopener noreferrer">Supervision Schedule Kinder 2026-27</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/IQBEQmyVj7YFRr22bDxdlThwAX8rHkYIwxBmkCuBimSAh2o?e=YvM65Y" target="_blank" rel="noopener noreferrer">Supervision Schedule Grades 2026-27</a></li>
+<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Calendar%20and%20Schedules/EBGIS%20Calendar%202025-2026.pdf?csf=1&amp;web=1&amp;e=bHeOJs" target="_blank" rel="noopener noreferrer">EBGIS Calendar 2025‑2026 PDF</a></li>
+<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Calendar%20and%20Schedules/EBGIS%20EBIHS%20Academic%20Calendar%2026-27.pdf?csf=1&amp;web=1&amp;e=qMnJAk" target="_blank" rel="noopener noreferrer">EBGIS Calendar 2026-2027</a></li>
+<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Calendar%20and%20Schedules/2025-2026%20Faculty%20Workday%20Calendar.pdf?csf=1&amp;web=1&amp;e=t8TA03" target="_blank" rel="noopener noreferrer">EBGIS 25–26 internal Faculty Workday Calendar</a></li>
+<li class="missing-link"><span>Attendance and Absences (no document)</span><span class="badge badge-missing">Link pending</span></li>
+<li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/shedrick_ebgis_org/EW-ouWD3BZBOsRYpDUZzRMoBsUg0h9BDj0-qm3ha3AshCQ?e=OlWaey" target="_blank" rel="noopener noreferrer">End-of-Day Procedures (Sam)</a></li>
+<li><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Handbook%20and%20Procedures/Morning%20Meeting%20and%20Homeroom%20Teacher%20Expectations.docx?d=w78e4cb56c26b43fabe22393c8ae59b7b&amp;csf=1&amp;web=1&amp;e=HYQCy6" target="_blank" rel="noopener noreferrer">Morning Meeting and Homeroom - Expectations and Guidelines</a></li>
+      </ul>
+    </details>
+    
+    <details class="dashboard-card">
+      <summary>
+        <span class="summary-content">
+          <span class="category-icon" aria-hidden="true">📚</span>
+          <span>
+            <span class="category-title">Teaching &amp; Learning</span>
+            <span class="category-description">Resources for planning, teaching, assessment and classroom practice.</span>
+          </span>
+        </span>
+      </summary>
+      <ul>
+        <li><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/24-25%20Staff%20Folder/Parent%20Teacher%20Conference%20Template%205-12/Parent%20Teacher%20Conference%20Template.docx?d=w3989822ac6e24e22b2f233a79b9ba99d&amp;csf=1&amp;web=1&amp;e=zZ50Jj" target="_blank" rel="noopener noreferrer">Parent Teacher Conference Template</a></li>
+<li><a href="https://www.novakeducation.com/hubfs/Resources/Would_You_Rather.pdf" target="_blank" rel="noopener noreferrer">UDL - Would you rather</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:f:/r/personal/krudd_ebgis_org/Documents/Rubrics?csf=1&amp;web=1&amp;e=EUi4ga" target="_blank" rel="noopener noreferrer">MS Bewertungskriterien / Rubrics</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/krudd_ebgis_org/ESDBMF2ZyFFEhXkgsFjuJ0EBPRxMn0KYNFMmLtYk1u5OEw?email=cmueller%40ebgis.org&amp;e=Q9ZtFY&amp;CID=1cd962ef-d9d9-43c0-8dc8-9235d39fa246" target="_blank" rel="noopener noreferrer">Field Trip Resource Guide</a></li>
+<li><a href="https://ebgis.sharepoint.com/:w:/r/sites/Curriculum/_layouts/15/Doc.aspx?sourcedoc=%7BF8D43BA4-9263-4A59-A65C-1C533E06E089%7D&amp;file=Course%20Briefs%202024-25.docx&amp;action=default&amp;mobileredirect=true" target="_blank" rel="noopener noreferrer">Course Briefs 2023/2024/2025</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/personal/krudd_ebgis_org/_layouts/15/doc.aspx?sourcedoc=%7b2d00ec58-a53b-4712-a094-3419294214b7%7d&amp;action=edit" target="_blank" rel="noopener noreferrer">EBGIS Resource Inventory</a></li>
+      </ul>
+    </details>
+    
+    <details class="dashboard-card">
+      <summary>
+        <span class="summary-content">
+          <span class="category-icon" aria-hidden="true">🤝</span>
+          <span>
+            <span class="category-title">Student Support</span>
+            <span class="category-description">Resources for student wellbeing, learning support, behavior and counseling.</span>
+          </span>
+        </span>
+      </summary>
+      <ul>
+        <li><a href="https://ebgis-my.sharepoint.com/:x:/r/personal/tsimmons_ebgis_org/Documents/Allergies%2025-26.xlsx?d=wbbd762e10f4e4824a5f9eca51d332aff&amp;csf=1&amp;web=1&amp;e=z82xra" target="_blank" rel="noopener noreferrer">Allergies 25-26</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:b:/g/personal/tsimmons_ebgis_org/EUvF2ASgpY9AloorQhashDsBtGefa7aBm2UCSIh1ofENEg?e=FzjIbB" target="_blank" rel="noopener noreferrer">Classroom Observation (Taylor)</a></li>
+<li><a href="https://forms.office.com/r/GZAfCMfkRQ?origin=lprLink" target="_blank" rel="noopener noreferrer">Counseling Referral Form</a></li>
+<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Policies%20and%20Practices/EBGIS%20Displine%20Matrix.pdf?csf=1&amp;web=1&amp;e=BFQNGq" target="_blank" rel="noopener noreferrer">Discipline Matrix</a></li>
+<li><a href="https://faria.s3.amazonaws.com/ManageBac/School+Setup/How+to+add+a+Behavioural+Note.mp4" target="_blank" rel="noopener noreferrer">How to add a Student Behavior Note in ManageBac (Tutorial)</a></li>
+<li class="missing-link"><span>Morning Meeting / Homeroom Slides</span><span class="badge badge-missing">Link pending</span></li>
+<li><a href="https://ebgis-my.sharepoint.com/:x:/r/personal/tsimmons_ebgis_org/Documents/Photo%20Permissions,%20Sunscreen%20Permissions.xlsx?d=w2d531d7068c440d7953f4fef330e964e&amp;csf=1&amp;web=1&amp;e=EKtKaD" target="_blank" rel="noopener noreferrer">Photo Permissions, Sunscreen Permissions</a></li>
+<li class="missing-link"><span>Positive Discipline Resource Folder</span><span class="badge badge-missing">Link pending</span></li>
+<li><a href="https://www.sequentialdevelopment.com/" target="_blank" rel="noopener noreferrer">Sequential Development Consulting (for Preschool)</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:b:/g/personal/tsimmons_ebgis_org/Ea8v-pw0F-hPmvRja1x2D6MBtmkikF_fVV1G-tG23VFdmA?e=E359as" target="_blank" rel="noopener noreferrer">Student Observation by teacher (Taylor)</a></li>
+<li><a href="https://app.withwayfinder.com/login" target="_blank" rel="noopener noreferrer">Wayfinder Resources</a></li>
+<li class="missing-link"><span>Academic Concern Report</span><span class="badge badge-missing">Link pending</span></li>
+<li class="missing-link"><span>Counselor Referral</span><span class="badge badge-missing">Link pending</span></li>
+      </ul>
+    </details>
+    
+    <details class="dashboard-card">
+      <summary>
+        <span class="summary-content">
+          <span class="category-icon" aria-hidden="true">📝</span>
+          <span>
+            <span class="category-title">Forms &amp; Requests</span>
+            <span class="category-description">Submit requests, reports and administrative forms.</span>
+          </span>
+        </span>
+      </summary>
+      <ul>
+        <li><a href="https://ebgis.org" target="_blank" rel="noopener noreferrer">Budget 2025/2026 (coming soon)</a></li>
+<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/NewtoEBGISStaffDevelopment/Shared Documents/Budget 2024-2025.pdf?csf=1&amp;web=1&amp;e=uGtxws" target="_blank" rel="noopener noreferrer">Budget 2024/2025</a></li>
+<li><a href="https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&amp;FormId=QcFP0J4Y_0yrQWcXSRl9i5IiGKnoM_VDkg84aNjgssFUMERQVEtSN0FWSFRYQ1pVN0pDTVJUUzFMMy4u" target="_blank" rel="noopener noreferrer">Early Childhood Paid Time Off Request Form (Link does not work)</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/shedrick_ebgis_org/_layouts/15/Doc.aspx?sourcedoc=%7B70F3B7B9-4DED-46D5-9282-64FF323977C7%7D&amp;file=EBGIS%20End%20of%20Year%20Checkout%20List.docx&amp;action=default&amp;mobileredirect=true&amp;wdsle=0" target="_blank" rel="noopener noreferrer">End of Year Checkout</a></li>
+<li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=QcFP0J4Y_0yrQWcXSRl9i5IiGKnoM_VDkg84aNjgssFUOU4zTVUxTEQ1R0c5RFE3WjFGWEQ3TEFYRi4u" target="_blank" rel="noopener noreferrer">Field Trip Request Form</a></li>
+<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Common%20Forms/EBGIS%20Incident%20Report.pdf?csf=1&amp;web=1&amp;e=fRcZRO" target="_blank" rel="noopener noreferrer">Incident Report</a></li>
+<li><a href="https://ebgis.sharepoint.com/sites/Office/Shared Documents/Forms/AllItems.aspx?id=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms%2FEBGIS%20Injury%20Report%20Form%2Epdf&amp;parent=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms" target="_blank" rel="noopener noreferrer">Injury Report</a></li>
+<li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=QcFP0J4Y_0yrQWcXSRl9i5IiGKnoM_VDkg84aNjgssFUREFUOFdXWDFUVlFZNVpNQzZBWUFEQ1FENS4u" target="_blank" rel="noopener noreferrer">Order Request Form 2025/2026</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/krudd_ebgis_org/Documents/Preschool Conference Form.docx?d=waaa6ebb5c33446f59e83bab68a6d8d90&amp;csf=1&amp;web=1&amp;e=OMy3gO" target="_blank" rel="noopener noreferrer">Preschool Conference Form</a></li>
+<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Common%20Forms/SOP%20-%20Reserving%20Rooms.pdf?csf=1&amp;web=1&amp;e=GNLeAP" target="_blank" rel="noopener noreferrer">Room Reservation Guide</a></li>
+<li><a href="https://ebgis.sharepoint.com/sites/Office/Shared Documents/Forms/AllItems.aspx?FolderCTID=0x01200074EEB687BA85D84189113E6C054CAE61&amp;id=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms%2FEBGIS%20Student%20Absence%20Request%20Form%2Epdf&amp;parent=%2Fsites%2FOffice%2FShared%20Documents%2FEBGIS%20Forms%2FGeneral%20Forms" target="_blank" rel="noopener noreferrer">Student Absence Request Form</a></li>
+      </ul>
+    </details>
+    
+    <details class="dashboard-card">
+      <summary>
+        <span class="summary-content">
+          <span class="category-icon" aria-hidden="true">🎉</span>
+          <span>
+            <span class="category-title">Events</span>
+            <span class="category-description">Event planning, committees and responsibilities for school-wide events.</span>
+          </span>
+        </span>
+      </summary>
+      <ul>
+        <li><a href="https://ebgis.sharepoint.com/:x:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Committees%20and%20Event%20Plans/Event%20sign%20up%202025-26.xlsx?d=w5f18636136c94a8fae5507f92b877c18&amp;csf=1&amp;web=1&amp;e=ahpSQC" target="_blank" rel="noopener noreferrer">Committee Sign Up List for 2025-26 Events</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:w:/r/personal/bgasser_ebgis_org/Documents/Events/Stipend%20Roles%20Guidelines%20and%20Descriptions.docx?d=w80e5e5cbf2814b2da3a8d2328b6a1551&amp;csf=1&amp;web=1&amp;e=sUQLy3" target="_blank" rel="noopener noreferrer">Committee Descriptions and Role Expectations (2024)</a></li>
+<li><a href="https://ebgis.sharepoint.com/:x:/r/sites/Communications/_layouts/15/Doc.aspx?sourcedoc=%7BF603E33A-0D65-4E67-AE8A-D6E1D26857C8%7D&amp;file=EBGIS%20Event%20Planner.xlsx&amp;fromShare=true&amp;action=default&amp;mobileredirect=true" target="_blank" rel="noopener noreferrer">Event Planner (for Chairs)</a></li>
+      </ul>
+    </details>
+    
+    <details class="dashboard-card">
+      <summary>
+        <span class="summary-content">
+          <span class="category-icon" aria-hidden="true">🎨</span>
+          <span>
+            <span class="category-title">Extended Day &amp; Enrichment</span>
+            <span class="category-description">Schedules, rosters, activities and responsibilities for Extended Day and enrichment.</span>
+          </span>
+        </span>
+      </summary>
+      <ul>
+        <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/ERpgoX8ztS5Dg01JzoI2g7MBBGmqbAm3CnYX89jrMv58sQ?e=9isEhr" target="_blank" rel="noopener noreferrer">Enrichment and Extended Day Schedule</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:x:/g/personal/bgasser_ebgis_org/IQDnyDk8QtOyR5Oj_rmFBNMFAVm9dfwU7AoAsEJ6HUAmUB4?e=Vmw9ry" target="_blank" rel="noopener noreferrer">Dismissal Locations</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:x:/g/personal/bgasser_ebgis_org/IQC-lqtIMQ9XRLK0et7EHc1zAaq8sK3rYyZNI65W8m0XmAE?e=PcV7Dj" target="_blank" rel="noopener noreferrer">Extended Day Rosters Spring 2026</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/IQDnMf33CM9GRpOulV1EajGHAV4gXIpFty5AvmqdNsg2k3A?e=2a7g7K" target="_blank" rel="noopener noreferrer">Indoor Games and Activities</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/ESmOqJOGwiVFjg1Mf3FABe4BSqT8y4S49wlVLxwjL5Oiog?e=IoA0mV" target="_blank" rel="noopener noreferrer">Enrichment and Extended Day Roles and Responsibilities</a></li>
+<li><a href="https://ebgis.sharepoint.com/:i:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Enrichment%20and%20Extended%20Day/Enrichment+Fall+Semster+2025+NEU.jpg?csf=1&amp;web=1&amp;e=8we6C1" target="_blank" rel="noopener noreferrer">Enrichment Classes Schedule</a></li>
+      </ul>
+    </details>
+    
+    <details class="dashboard-card">
+      <summary>
+        <span class="summary-content">
+          <span class="category-icon" aria-hidden="true">📘</span>
+          <span>
+            <span class="category-title">Staff Handbook, Procedures &amp; Policies</span>
+            <span class="category-description">School-wide expectations, HR information, handbooks, procedures and policies.</span>
+          </span>
+        </span>
+      </summary>
+      <ul>
+        <li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Handbook%20and%20Procedures/Know-Your-Rights-Notice-English.pdf?csf=1&amp;web=1&amp;e=j6Xluu" target="_blank" rel="noopener noreferrer">Know-Your-Rights-Notice-English</a></li>
+<li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Policies%20and%20Practices?csf=1&amp;web=1&amp;e=4jNqCi" target="_blank" rel="noopener noreferrer">All policies</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/krudd_ebgis_org/EYjNLnbE6NxIs55mfgARGNkB-fTpaTHD4p5sgkvQYd87Vg?e=Tggfgt" target="_blank" rel="noopener noreferrer">Leadership Roles and Responsibilities (Kaylene)</a></li>
+<li><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared Documents/24-25 Staff Folder/Dashboard Files/EBGIS Employee Handbook.docx?d=wec0694f639084a4eb0ce3911400ac088&amp;csf=1&amp;web=1&amp;e=fJqqoy" target="_blank" rel="noopener noreferrer">Employee Handbook</a></li>
+<li><a href="https://ebgis.sharepoint.com/:w:/s/Operations2/EdD1CRffIJJBuwHXZKVuaGwBMezZM-EieCLTkv-Es_nbkw?e=hdHX2s" target="_blank" rel="noopener noreferrer">Safety/Emergency Handbook (from 2023)</a></li>
+<li><a href="https://ebgis.sharepoint.com/:b:/s/Admissions/EaJv8GyCdotDlV1u--3UfCYB6TIji1NTP6VmubzB3w_mYg?e=hB3DF2" target="_blank" rel="noopener noreferrer">Family Handbook</a></li>
+<li><a href="https://ebgis.sharepoint.com/sites/Admissions/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FAdmissions%2FShared%20Documents%2FFamily%20Handbook%2FFamily%20Handbook%2024%2D25%2FEBGIS%5FFamily%5FHandbook%5F%2D%5FPreschool%5FAddendum%5F202305%2Epdf&amp;parent=%2Fsites%2FAdmissions%2FShared%20Documents%2FFamily%20Handbook%2FFamily%20Handbook%2024%2D25&amp;p=true&amp;ga=1" target="_blank" rel="noopener noreferrer">Family Handbook Preschool Addendum (2023)</a></li>
+<li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/HR%20Documents?csf=1&amp;web=1&amp;e=TyKZSC" target="_blank" rel="noopener noreferrer">HR Documents (e.g. insurance information)</a></li>
+<li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/krudd_ebgis_org/EUNh7de4pa1EkI_iw3hMtcIBfbe6Qla-n6Z_ycdk7sLChg?e=Tj8T2L" target="_blank" rel="noopener noreferrer">Communication Expectations (Kaylene)</a></li>
+      </ul>
+    </details>
+    
+    <details class="dashboard-card">
+      <summary>
+        <span class="summary-content">
+          <span class="category-icon" aria-hidden="true">💻</span>
+          <span>
+            <span class="category-title">Digital Tools</span>
+            <span class="category-description">Direct access to EBGIS platforms, teaching applications and staff systems.</span>
+          </span>
+        </span>
+      </summary>
+      <ul>
+        <li><a href="https://www.ebgis.org" target="_blank" rel="noopener noreferrer">EBGIS Website</a></li>
+<li><a href="https://ebgis.sharepoint.com/:f:/r/sites/EBGISPhotos/Shared%20Documents/2025-2026?csf=1&amp;web=1&amp;e=dllKva" target="_blank" rel="noopener noreferrer">EBGIS Photos - please upload all school photos here</a></li>
+<li><a href="https://ebgis.sharepoint.com/:u:/r/sites/AllStaff/SitePages/Home.aspx?csf=1&amp;web=1&amp;e=zSIe3C" target="_blank" rel="noopener noreferrer">EBGIS Sharepoint</a></li>
+<li><a href="https://account.adobe.com" target="_blank" rel="noopener noreferrer">Adobe</a></li>
+<li><a href="https://www.antolin.com/en/user/login/1000" target="_blank" rel="noopener noreferrer">Antolin</a></li>
+<li><a href="https://www.canva.com/login/" target="_blank" rel="noopener noreferrer">Canva</a></li>
+<li><a href="https://classroomscreen.com/" target="_blank" rel="noopener noreferrer">Classroomscreen – The online Whiteboard</a></li>
+<li><a href="https://www.ixl.com/signin" target="_blank" rel="noopener noreferrer">IXL</a></li>
+<li><a href="https://ebgis.managebac.com/" target="_blank" rel="noopener noreferrer">ManageBac Login</a></li>
+<li><a href="https://www.parentsquare.com/signin" target="_blank" rel="noopener noreferrer">ParentSquare</a></li>
+<li><a href="https://get.plickers.com/" target="_blank" rel="noopener noreferrer">Plickers – collect real‑time responses from students</a></li>
+<li><a href="https://namesonwheel.com/" target="_blank" rel="noopener noreferrer">Spinwheel (Glücksrad)</a></li>
+<li><a href="https://login.trinet.com" target="_blank" rel="noopener noreferrer">TriNet</a> <span class="separator">or</span> <a href="https://secure.zenefits.com/accounts/login/" target="_blank" rel="noopener noreferrer">TriNet alternative link</a></li>
+<li><a href="https://ebgis-ca.safeschools.com/login" target="_blank" rel="noopener noreferrer">Vector Training Portal</a></li>
+<li><a href="https://app.withwayfinder.com/login" target="_blank" rel="noopener noreferrer">Wayfinder</a></li>
+      </ul>
+    </details>
+    
 
-<details>
-    <summary>📚 Curriculum and Resources</summary>
-    <ul>
-  <li><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/24-25%20Staff%20Folder/Parent%20Teacher%20Conference%20Template%205-12/Parent%20Teacher%20Conference%20Template.docx?d=w3989822ac6e24e22b2f233a79b9ba99d&csf=1&web=1&e=zZ50Jj" target="_blank">Parent Teacher Conference Template</a></li>
-
-      <li><a href="https://www.novakeducation.com/hubfs/Resources/Would_You_Rather.pdf" target="_blank">UDL - Would you rather</a></li>
-  <li><a href="https://ebgis-my.sharepoint.com/:f:/r/personal/krudd_ebgis_org/Documents/Rubrics?csf=1&web=1&e=EUi4ga" target="_blank">MS Bewertungskriterien / Rubrics</a></li>
-  <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/krudd_ebgis_org/ESDBMF2ZyFFEhXkgsFjuJ0EBPRxMn0KYNFMmLtYk1u5OEw?email=cmueller%40ebgis.org&e=Q9ZtFY&CID=1cd962ef-d9d9-43c0-8dc8-9235d39fa246" target="_blank">Field Trip Resource Guide</a></li>
-  <li><a href="https://ebgis.sharepoint.com/:w:/r/sites/Curriculum/_layouts/15/Doc.aspx?sourcedoc=%7BF8D43BA4-9263-4A59-A65C-1C533E06E089%7D&file=Course%20Briefs%202024-25.docx&action=default&mobileredirect=true" target="_blank">Course Briefs 2023/2024/2025</a></li>
-  <li><a href="https://ebgis-my.sharepoint.com/personal/krudd_ebgis_org/_layouts/15/doc.aspx?sourcedoc=%7b2d00ec58-a53b-4712-a094-3419294214b7%7d&action=edit" target="_blank">EBGIS Resource Inventory</a></li>
-</ul>
-  </details>
-
-  <details>
-    <summary>🎨  Enrichment and Extended Day</summary>
- <ul>
-   <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/ERpgoX8ztS5Dg01JzoI2g7MBBGmqbAm3CnYX89jrMv58sQ?e=9isEhr" target="_blank">Enrichment and Extended Day Schedule</a></li>
-  <li><a href="https://ebgis-my.sharepoint.com/:x:/g/personal/bgasser_ebgis_org/IQDnyDk8QtOyR5Oj_rmFBNMFAVm9dfwU7AoAsEJ6HUAmUB4?e=Vmw9ry" target="_blank">Dismissal Locations</a></li>
-    <li><a href="https://ebgis-my.sharepoint.com/:x:/g/personal/bgasser_ebgis_org/IQC-lqtIMQ9XRLK0et7EHc1zAaq8sK3rYyZNI65W8m0XmAE?e=PcV7Dj" target="_blank">Extended Day Rosters Spring 2026</a></li>
-    <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/IQDnMf33CM9GRpOulV1EajGHAV4gXIpFty5AvmqdNsg2k3A?e=2a7g7K" target="_blank">Indoor Games and Activities</a></li>
-   <li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/ESmOqJOGwiVFjg1Mf3FABe4BSqT8y4S49wlVLxwjL5Oiog?e=IoA0mV" target="_blank">Enrichment and Extended Day Roles and Responsibilities</a></li>
-    <li><a href="https://ebgis.sharepoint.com/:i:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Enrichment%20and%20Extended%20Day/Enrichment+Fall+Semster+2025+NEU.jpg?csf=1&web=1&e=8we6C1" target="_blank">Enrichment Classes Schedule</a></li>
-  </ul>
-  </details>
-  
-<details>
-    <summary>📘 Handbook, Procedures and Policies</summary>
-    <ul>
-      <li>Attendance and Absences (no document)</li>
-  <li>
-    <a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Handbook%20and%20Procedures/Know-Your-Rights-Notice-English.pdf?csf=1&web=1&e=j6Xluu" target="_blank" rel="noopener noreferrer">
-      Know-Your-Rights-Notice-English
-    </a>
-  </li>
-<li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Policies%20and%20Practices?csf=1&web=1&e=4jNqCi" target="_blank">All policies</a></li><li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/krudd_ebgis_org/EYjNLnbE6NxIs55mfgARGNkB-fTpaTHD4p5sgkvQYd87Vg?e=Tggfgt" target="_blank">Leadership Roles and Responsibilities (Kaylene)</a></li>
-<li><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared Documents/24-25 Staff Folder/Dashboard Files/EBGIS Employee Handbook.docx?d=wec0694f639084a4eb0ce3911400ac088&csf=1&web=1&e=fJqqoy" target="_blank">Employee Handbook</a></li>
-<li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/shedrick_ebgis_org/EW-ouWD3BZBOsRYpDUZzRMoBsUg0h9BDj0-qm3ha3AshCQ?e=OlWaey" target="_blank">End-of-Day Procedures (Sam)</a></li>
-<li><a href="https://ebgis.sharepoint.com/:w:/s/Operations2/EdD1CRffIJJBuwHXZKVuaGwBMezZM-EieCLTkv-Es_nbkw?e=hdHX2s" target="_blank">Safety/Emergency Handbook (from 2023)</a></li>
-<li><a href="https://ebgis.sharepoint.com/:b:/s/Admissions/EaJv8GyCdotDlV1u--3UfCYB6TIji1NTP6VmubzB3w_mYg?e=hB3DF2" target="_blank">Family Handbook</a></li>
-<li><a href="https://ebgis.sharepoint.com/sites/Admissions/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FAdmissions%2FShared%20Documents%2FFamily%20Handbook%2FFamily%20Handbook%2024%2D25%2FEBGIS%5FFamily%5FHandbook%5F%2D%5FPreschool%5FAddendum%5F202305%2Epdf&parent=%2Fsites%2FAdmissions%2FShared%20Documents%2FFamily%20Handbook%2FFamily%20Handbook%2024%2D25&p=true&ga=1" target="_blank">Family Handbook Preschool Addendum (2023)</a></li>
-<li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/HR%20Documents?csf=1&web=1&e=TyKZSC" target="_blank">HR Documents (e.g. insurance information)</a></li>
-<li><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/krudd_ebgis_org/EUNh7de4pa1EkI_iw3hMtcIBfbe6Qla-n6Z_ycdk7sLChg?e=Tj8T2L" target="_blank">Communication Expectations (Kaylene)</a></li>
-<li><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Handbook%20and%20Procedures/Morning%20Meeting%20and%20Homeroom%20Teacher%20Expectations.docx?d=w78e4cb56c26b43fabe22393c8ae59b7b&csf=1&web=1&e=HYQCy6" target="_blank">Morning Meeting and Homeroom - Expectations and Guidelines</a></li>
-</ul>
-  </details>
-
- <details>
-     <summary>🔗  Links and Portals</summary>
- <ul>
-  <li><a href="https://www.ebgis.org" target="_blank">EBGIS Website</a></li>
-  <li><a href="https://ebgis.sharepoint.com/:f:/r/sites/EBGISPhotos/Shared%20Documents/2025-2026?csf=1&web=1&e=dllKva" target="_blank">EBGIS Photos - please upload all school photos here</a></li>
-  <li><a href="https://ebgis.sharepoint.com/:u:/r/sites/AllStaff/SitePages/Home.aspx?csf=1&web=1&e=zSIe3C" target="_blank">EBGIS Sharepoint</a></li>
-  <li><a href="https://account.adobe.com" target="_blank">Adobe</a></li>
-  <li><a href="https://www.antolin.com/en/user/login/1000" target="_blank">Antolin</a></li>
-  <li><a href="https://www.canva.com/login/" target="_blank">Canva</a></li>
-  <li><a href="https://classroomscreen.com/" target="_blank">Classroomscreen – The online Whiteboard</a></li>
-  <li><a href="https://www.ixl.com/signin" target="_blank">IXL</a></li>
-  <li><a href="https://ebgis.managebac.com/" target="_blank">ManageBac Login</a></li>
-  <li><a href="https://www.parentsquare.com/signin" target="_blank">ParentSquare</a></li>
-  <li><a href="https://get.plickers.com/" target="_blank">Plickers – collect real‑time responses from students</a></li>
-  <li><a href="https://namesonwheel.com/" target="_blank">Spinwheel (Glücksrad)</a></li>
-  <li><a href="https://login.trinet.com" target="_blank">TriNet</a> or <a href="https://secure.zenefits.com/accounts/login/" target="_blank">TriNet alternative link</a></li>
-  <li><a href="https://ebgis-ca.safeschools.com/login" target="_blank">Vector Training Portal</a></li>
-  <li><a href="https://app.withwayfinder.com/login" target="_blank">Wayfinder</a></li>
-</ul>
-  </details>
-  
-<details>
-    <summary>🤗  Student Support, SEL and Discipline</summary>
-<ul>
-  <li><a href="https://ebgis-my.sharepoint.com/:x:/r/personal/tsimmons_ebgis_org/Documents/Allergies%2025-26.xlsx?d=wbbd762e10f4e4824a5f9eca51d332aff&csf=1&web=1&e=z82xra" target="_blank">Allergies 25-26</a></li>
-  <li><a href="https://ebgis-my.sharepoint.com/:b:/g/personal/tsimmons_ebgis_org/EUvF2ASgpY9AloorQhashDsBtGefa7aBm2UCSIh1ofENEg?e=FzjIbB" target="_blank">Classroom Observation (Taylor)</a></li>
-<li><a href="https://forms.office.com/r/GZAfCMfkRQ?origin=lprLink" target="_blank">Counseling Referral Form</a></li>
-<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Policies%20and%20Practices/EBGIS%20Displine%20Matrix.pdf?csf=1&web=1&e=BFQNGq" target="_blank">Discipline Matrix</a></li>
-<li><a href="https://faria.s3.amazonaws.com/ManageBac/School+Setup/How+to+add+a+Behavioural+Note.mp4" target="_blank">How to add a Student Behavior Note in ManageBac (Tutorial)</a></li>
-<li>Morning Meeting / Homeroom Slides</li>
-<li><a href="https://ebgis-my.sharepoint.com/:x:/r/personal/tsimmons_ebgis_org/Documents/Photo%20Permissions,%20Sunscreen%20Permissions.xlsx?d=w2d531d7068c440d7953f4fef330e964e&csf=1&web=1&e=EKtKaD">Photo Permissions, Sunscreen Permissions</a></li>
-<li>Positive Discipline Resource Folder</li>
-<li><a href="https://www.sequentialdevelopment.com/" target="_blank">Sequential Development Consulting (for Preschool)</a></li>
-<li><a href="https://ebgis-my.sharepoint.com/:b:/g/personal/tsimmons_ebgis_org/Ea8v-pw0F-hPmvRja1x2D6MBtmkikF_fVV1G-tG23VFdmA?e=E359as" target="_blank">Student Observation by teacher (Taylor)</a></li>
-<li><a href="https://app.withwayfinder.com/login" target="_blank">Wayfinder Resources</a></li>
-  </ul>
-  </details>
-
-<details>
-    <summary>🧑‍🏫  Substitute Teaching</summary>
- <ul>
-  <li>Preschool Substitution Protocols</li>
-  <li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Substitute%20Teaching?csf=1&web=1&e=YdnR46" target="_blank">Substitute Welcome Email</a></li>
-  <li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Substitute%20Teaching?csf=1&web=1&e=YdnR46" target="_blank">Statement of Acknowledgement</a></li>
-  <li><a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Substitute%20Teaching?csf=1&web=1&e=YdnR46" target="_blank">Whole School Substitute Handbook</a></li>
-</ul>
-  </details>
-
-  <script>
-    // Live-Filterfunktion für die Suchleiste
-    document.getElementById('searchInput').addEventListener('input', function () {
-      const filter = this.value.toLowerCase();
-      const details = document.querySelectorAll('details');
-
-      details.forEach(section => {
-        let hasMatch = false;
-        const items = section.querySelectorAll('li');
-
-        items.forEach(item => {
-          const text = item.textContent.toLowerCase();
-          const matches = text.includes(filter);
-          item.style.display = matches ? '' : 'none';
-          if (matches) hasMatch = true;
-        });
-
-        section.style.display = hasMatch ? '' : 'none';
-      });
-    });
-  </script>
-
+    <div class="no-results" id="noResults">
+      No matching documents or resources found.
+    </div>
   </main>
 
   <footer class="dashboard-footer">
     EBGIS Staff Dashboard · School Year 2026–2027
   </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.dashboard-card');
+    const noResults = document.getElementById('noResults');
+
+    searchInput.addEventListener('input', function () {
+      const filter = this.value.trim().toLowerCase();
+      let visibleSections = 0;
+
+      cards.forEach(card => {
+        const items = card.querySelectorAll('li');
+        const title = card.querySelector('.category-title').textContent.toLowerCase();
+        const description = card.querySelector('.category-description').textContent.toLowerCase();
+        const categoryMatches = title.includes(filter) || description.includes(filter);
+        let matchingItems = 0;
+
+        items.forEach(item => {
+          const itemMatches = item.textContent.toLowerCase().includes(filter);
+          const showItem = filter === '' || categoryMatches || itemMatches;
+          item.style.display = showItem ? '' : 'none';
+
+          if (showItem) {
+            matchingItems += 1;
+          }
+        });
+
+        const showCard = filter === '' || categoryMatches || matchingItems > 0;
+        card.style.display = showCard ? '' : 'none';
+
+        if (showCard) {
+          visibleSections += 1;
+        }
+
+        if (filter !== '' && showCard) {
+          card.open = true;
+        } else if (filter === '') {
+          card.open = false;
+        }
+      });
+
+      noResults.style.display = visibleSections === 0 ? 'block' : 'none';
+    });
+  </script>
+
 </body>
 </html>

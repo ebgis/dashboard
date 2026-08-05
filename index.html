@@ -214,6 +214,59 @@
       align-items: center;
       gap: 10px;
     }
+
+    .status-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 12px 14px;
+      border: 1px solid var(--ebgis-border);
+      border-radius: 12px;
+      background: var(--ebgis-white);
+      color: var(--ebgis-muted);
+      font-size: 0.88rem;
+      box-shadow: 0 3px 10px rgba(35, 68, 100, 0.05);
+    }
+
+    .legend-label {
+      font-weight: 700;
+      color: var(--ebgis-blue);
+    }
+
+    .badge {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 2px 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1.5;
+      border-radius: 999px;
+      text-transform: uppercase;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .status-legend .badge {
+      margin-left: 0;
+    }
+
+    .badge-new {
+      background: #2e8b57;
+      color: #ffffff;
+    }
+
+    .badge-update {
+      background: #f59e0b;
+      color: #ffffff;
+    }
+
+    .badge-coming {
+      background: #9ca3af;
+      color: #ffffff;
+    }
+
 .separator {
       margin: 0 5px;
       color: var(--ebgis-muted);

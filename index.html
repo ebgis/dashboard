@@ -214,28 +214,7 @@
       align-items: center;
       gap: 10px;
     }
-
-    .status-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-      align-items: center;
-      margin-bottom: 20px;
-      padding: 12px 14px;
-      border: 1px solid var(--ebgis-border);
-      border-radius: 12px;
-      background: var(--ebgis-white);
-      color: var(--ebgis-muted);
-      font-size: 0.88rem;
-      box-shadow: 0 3px 10px rgba(35, 68, 100, 0.05);
-    }
-
-    .legend-label {
-      font-weight: 700;
-      color: var(--ebgis-blue);
-    }
-
-    .badge {
+.badge {
       display: inline-block;
       margin-left: 8px;
       padding: 2px 8px;
@@ -247,12 +226,7 @@
       vertical-align: middle;
       white-space: nowrap;
     }
-
-    .status-legend .badge {
-      margin-left: 0;
-    }
-
-    .badge-new {
+.badge-new {
       background: #2e8b57;
       color: #ffffff;
     }
@@ -345,7 +319,54 @@
     @media (max-width: 700px) {
       .event-link { margin-left: 18px; }
     }
-    </style>
+    
+    .quick-access {
+      margin-bottom: 20px;
+      padding: 14px 16px;
+      border: 1px solid #c9dceb;
+      border-radius: 12px;
+      background: var(--ebgis-white);
+      box-shadow: 0 3px 10px rgba(35, 68, 100, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .quick-access-text {
+      color: var(--ebgis-muted);
+      font-size: 0.92rem;
+    }
+
+    .quick-access-text strong {
+      display: block;
+      color: var(--ebgis-blue);
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .quick-access-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: var(--ebgis-blue-light);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-weight: 700;
+      box-shadow: 0 3px 8px rgba(11, 95, 165, 0.18);
+    }
+
+    .quick-access-button:hover,
+    .quick-access-button:focus {
+      background: var(--ebgis-blue);
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+
+</style>
 </head>
 <body>
 <header class="dashboard-header">
@@ -360,7 +381,7 @@
 <main class="dashboard-main">
 <div class="search-wrap">
 <input aria-label="Search dashboard" id="searchInput" placeholder="Search schedules, teaching resources, forms, systems or keywords..." type="text"/>
-</div><div class="status-legend"><span class="legend-label">Status:</span><span><span class="badge badge-new">NEW</span> new resource available</span><span><span class="badge badge-update">2026–27 Update Coming Soon</span> current version will be updated</span><span><span class="badge badge-coming">Coming Soon</span> resource is being prepared</span></div>
+</div><div class="quick-access"><div class="quick-access-text"><strong>Quick Access</strong>Open the EBGIS faculty portal directly in Veracross.</div><a class="quick-access-button" href="https://portals.veracross.com/ebgis/faculty" rel="noopener noreferrer" target="_blank">↗ Veracross Login</a></div>
 <details class="dashboard-card">
 <summary>
 <span class="summary-content">
@@ -372,7 +393,7 @@
 </span>
 </summary>
 <ul>
-    <li><a href="https://accounts.veracross.com/EBGIS/portals/login" rel="noopener noreferrer" target="_blank">Veracross Login</a><span class="badge badge-new">NEW</span></li>
+<li><a href="https://accounts.veracross.com/EBGIS/portals/login" rel="noopener noreferrer" target="_blank">Veracross Login</a></li>
 <li>
 <a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Calendar%20and%20Schedules/EBGIS%20EBIHS%20Academic%20Calendar%2026-27.pdf?csf=1&amp;web=1&amp;e=qMnJAk" rel="noopener noreferrer" target="_blank">
       EBGIS Calendar 2026–2027
@@ -387,7 +408,7 @@
 <a href="https://ebgis.sharepoint.com/:f:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Daily%20Operation/Schedules?d=wc7a7b11e593e4c8982853ee60d890723&amp;csf=1&amp;web=1&amp;e=OH7iNN" rel="noopener noreferrer" target="_blank">
       Grades Schedule
     </a>
- <span class="badge badge-new">NEW</span></li>
+</li>
 <li>
 <a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Daily%20Operation/Schedule%20Explanations.docx?d=we81a8b713c6e490bb55f62c898562174&amp;csf=1&amp;web=1&amp;e=LNezzN" rel="noopener noreferrer" target="_blank">
       Grades Schedule Explanation
@@ -402,8 +423,8 @@
 <a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/IQBEQmyVj7YFRr22bDxdlThwAX8rHkYIwxBmkCuBimSAh2o?e=YvM65Y" rel="noopener noreferrer" target="_blank">
       Supervision Schedule Grades 2026–27
     </a>
- <span class="badge badge-new">NEW</span></li>
-    <li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Daily%20Operation/Grades_Off_Campus_Planning_Schedule.pdf?d=wf6656cb9979949b8b17d947eb81872c3&amp;csf=1&amp;web=1&amp;e=CRCn41" target="_blank" rel="noopener noreferrer">Grades Off Campus Planning Schedule</a> <span class="badge badge-new">NEW</span></li>
+</li>
+<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Daily%20Operation/Grades_Off_Campus_Planning_Schedule.pdf?d=wf6656cb9979949b8b17d947eb81872c3&amp;csf=1&amp;web=1&amp;e=CRCn41" rel="noopener noreferrer" target="_blank">Grades Off Campus Planning Schedule</a> </li>
 </ul>
 </details>
 <details class="dashboard-card">
@@ -529,10 +550,10 @@
 </span>
 </summary>
 <ul>
-    <li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Requests%20and%20Reports/EBGIS_2026-2027_Budget_Guide.pdf?d=w7582a3557a11414cb02c16e1d86b84d7&amp;csf=1&amp;web=1&amp;e=b83zlL" target="_blank" rel="noopener noreferrer">Budget 2026–2027</a> <span class="badge badge-new">NEW</span></li>
-    <li><a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=QcFP0J4Y_0yrQWcXSRl9i_IvgDe7qaROodwZv-yiDLRUQTFGNEhZOTRQNVBLSTUxRDhZNlNLTVZMUS4u" rel="noopener noreferrer" target="_blank">Field Trip Request Form 2026–2027</a><span class="badge badge-new">NEW</span></li>
-    <li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Common%20Forms/EBGIS%20Incident%20Report.pdf?csf=1&amp;web=1&amp;e=fRcZRO" rel="noopener noreferrer" target="_blank">Incident Report</a></li>
-    <li><a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=QcFP0J4Y_0yrQWcXSRl9i_IvgDe7qaROodwZv-yiDLRURDJFSEZTUEVHUzZXSlNEV0Y4MTMyNlkwMC4u" rel="noopener noreferrer" target="_blank">Order Request Form 2026–2027</a><span class="badge badge-new">NEW</span></li>
+<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Requests%20and%20Reports/EBGIS_2026-2027_Budget_Guide.pdf?d=w7582a3557a11414cb02c16e1d86b84d7&amp;csf=1&amp;web=1&amp;e=b83zlL" rel="noopener noreferrer" target="_blank">Budget 2026–2027</a> <span class="badge badge-new">NEW</span></li>
+<li><a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=QcFP0J4Y_0yrQWcXSRl9i_IvgDe7qaROodwZv-yiDLRUQTFGNEhZOTRQNVBLSTUxRDhZNlNLTVZMUS4u" rel="noopener noreferrer" target="_blank">Field Trip Request Form 2026–2027</a><span class="badge badge-new">NEW</span></li>
+<li><a href="https://ebgis.sharepoint.com/:b:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Common%20Forms/EBGIS%20Incident%20Report.pdf?csf=1&amp;web=1&amp;e=fRcZRO" rel="noopener noreferrer" target="_blank">Incident Report</a></li>
+<li><a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=QcFP0J4Y_0yrQWcXSRl9i_IvgDe7qaROodwZv-yiDLRURDJFSEZTUEVHUzZXSlNEV0Y4MTMyNlkwMC4u" rel="noopener noreferrer" target="_blank">Order Request Form 2026–2027</a><span class="badge badge-new">NEW</span></li>
 </ul>
 </details>
 <details class="dashboard-card">
@@ -546,22 +567,22 @@
 </span>
 </summary>
 <ul><li class="section-heading">Getting Started</li>
-    <li class="featured-link"><a href="https://ebgis-my.sharepoint.com/:p:/g/personal/bgasser_ebgis_org/IQD3XxO0Ap3bQ6EjOdYzOqqYAcfAtJ2llvWLz0HbwsZPd9g?e=tXq3sD" rel="noopener noreferrer" target="_blank">🎓 EBGIS Signature Events Presentation</a></li>
-    <li class="featured-link"><a href="https://forms.cloud.microsoft/r/8y6zy0cDCS?origin=lprLink" rel="noopener noreferrer" target="_blank">📝 Committee &amp; Event Participation Survey 2026–2027</a></li>
-    <li class="featured-link"><a href="https://ebgis.sharepoint.com/:x:/r/sites/Communications/_layouts/15/Doc.aspx?sourcedoc=%7BF603E33A-0D65-4E67-AE8A-D6E1D26857C8%7D&amp;file=EBGIS%20Event%20Planner.xlsx&amp;fromShare=true&amp;action=default&amp;mobileredirect=true" rel="noopener noreferrer" target="_blank">📋 Event Planner (for Committee Chairs)</a></li>
-    <li class="section-heading">Event Library</li>
-    <li class="event-title"><strong>🇩🇪 German Day</strong></li>
-    <li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/German_Day_Event_Overview.docx?d=w1bb97c0d529b4add9dcc991439b22782&amp;csf=1&amp;web=1&amp;e=nMxbvO" rel="noopener noreferrer" target="_blank">Event Overview</a></li>
-    <li class="event-link"><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/IQAlblWonU_fRaE68IIlNo1JAVCs_132h18cwb6RJdOEpms?e=cwNCVX">German Day Meeting Minutes</a><span class="badge badge-new">NEW</span></li>
-    <li class="event-title"><strong>🎃 Halloween</strong></li>
-    <li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/Halloween%20Event%20Overview.docx?d=wf8f8f5e0d213490ca15440f2bace899b&amp;csf=1&amp;web=1&amp;e=c0CnTm" rel="noopener noreferrer" target="_blank">Event Overview</a></li>
-    <li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Halloween%20Transition%20Guide.docx?d=w5e5308c285834a33a345d8facf3882d9&amp;csf=1&amp;web=1&amp;e=1lj9Od" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li>
-    <li class="event-title"><strong>🏮 Laternenfest</strong></li>
-    <li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/Laternenfest%20Event%20Overview.docx?d=w81d2b6c029214ca19f8ab2155b73f460&amp;csf=1&amp;web=1&amp;e=m9yJTJ" rel="noopener noreferrer" target="_blank">Event Overview</a></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Laternenfest%20Transition%20Guide.docx?d=w3ef2775fcf684ba283e91cc5cc9a5e27&amp;csf=1&amp;web=1&amp;e=6bMNlK" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li>
-    <li class="event-title"><strong>🎄 East Bay Weihnachtsmarkt</strong></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/East%20Bay%20Weihnachtsmarkt%20Event%20Overview.docx?d=weac1501247864a16a4dabc0584940c5e&amp;csf=1&amp;web=1&amp;e=KEhn9N" rel="noopener noreferrer" target="_blank">Event Overview</a></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Weihnachtsmarkt%20Transition%20Guide.docx?d=w9b8e9bbe6f5f475a9c1c342858cdd37a&amp;csf=1&amp;web=1&amp;e=VfTsuz" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li>
-    <li class="event-title"><strong>🎭 Fasching</strong></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/Fasching%20Event%20Overview.docx?d=w6b76aa0951f14ac79da0603f98d3f065&amp;csf=1&amp;web=1&amp;e=Lydo8W" rel="noopener noreferrer" target="_blank">Event Overview</a></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Fasching%20Transition%20Guide.docx?d=wde13141e42644ecda667b6c6e5800680&amp;csf=1&amp;web=1&amp;e=1XQbCQ" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li>
-    <li class="event-title"><strong>🏃 Sportfest</strong></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/Sportfest%20Event%20Overview.docx?d=wfbc5bb76bb6b47b2968f1c0eeb7df431&amp;csf=1&amp;web=1&amp;e=bphTsI" rel="noopener noreferrer" target="_blank">Event Overview</a></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Sportfest%20Transition%20Guide.docx?d=w8c0de887d4d545f1906a99bce4512edd&amp;csf=1&amp;web=1&amp;e=qIchIz" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li>
-    <li class="event-title"><strong>☀️ Sommerfest</strong></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/Sommerfest%20Event%20Overview.docx?d=wcf041c90c96140148b023d1164694916&amp;csf=1&amp;web=1&amp;e=lCi1hA" rel="noopener noreferrer" target="_blank">Event Overview</a></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Sommerfest%20Transtition%20Guide.docx?d=w79d06d6c27b645ac9467de5e6e9d3309&amp;csf=1&amp;web=1&amp;e=aXBgTs" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li></ul>
+<li class="featured-link"><a href="https://ebgis-my.sharepoint.com/:p:/g/personal/bgasser_ebgis_org/IQD3XxO0Ap3bQ6EjOdYzOqqYAcfAtJ2llvWLz0HbwsZPd9g?e=tXq3sD" rel="noopener noreferrer" target="_blank">🎓 EBGIS Signature Events Presentation</a></li>
+<li class="featured-link"><a href="https://forms.cloud.microsoft/r/8y6zy0cDCS?origin=lprLink" rel="noopener noreferrer" target="_blank">📝 Committee &amp; Event Participation Survey 2026–2027</a></li>
+<li class="featured-link"><a href="https://ebgis.sharepoint.com/:x:/r/sites/Communications/_layouts/15/Doc.aspx?sourcedoc=%7BF603E33A-0D65-4E67-AE8A-D6E1D26857C8%7D&amp;file=EBGIS%20Event%20Planner.xlsx&amp;fromShare=true&amp;action=default&amp;mobileredirect=true" rel="noopener noreferrer" target="_blank">📋 Event Planner (for Committee Chairs)</a></li>
+<li class="section-heading">Event Library</li>
+<li class="event-title"><strong>🇩🇪 German Day</strong></li>
+<li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/German_Day_Event_Overview.docx?d=w1bb97c0d529b4add9dcc991439b22782&amp;csf=1&amp;web=1&amp;e=nMxbvO" rel="noopener noreferrer" target="_blank">Event Overview</a></li>
+<li class="event-link"><a href="https://ebgis-my.sharepoint.com/:w:/g/personal/bgasser_ebgis_org/IQAlblWonU_fRaE68IIlNo1JAVCs_132h18cwb6RJdOEpms?e=cwNCVX">German Day Meeting Minutes</a><span class="badge badge-new">NEW</span></li>
+<li class="event-title"><strong>🎃 Halloween</strong></li>
+<li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/Halloween%20Event%20Overview.docx?d=wf8f8f5e0d213490ca15440f2bace899b&amp;csf=1&amp;web=1&amp;e=c0CnTm" rel="noopener noreferrer" target="_blank">Event Overview</a></li>
+<li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Halloween%20Transition%20Guide.docx?d=w5e5308c285834a33a345d8facf3882d9&amp;csf=1&amp;web=1&amp;e=1lj9Od" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li>
+<li class="event-title"><strong>🏮 Laternenfest</strong></li>
+<li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/Laternenfest%20Event%20Overview.docx?d=w81d2b6c029214ca19f8ab2155b73f460&amp;csf=1&amp;web=1&amp;e=m9yJTJ" rel="noopener noreferrer" target="_blank">Event Overview</a></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Laternenfest%20Transition%20Guide.docx?d=w3ef2775fcf684ba283e91cc5cc9a5e27&amp;csf=1&amp;web=1&amp;e=6bMNlK" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li>
+<li class="event-title"><strong>🎄 East Bay Weihnachtsmarkt</strong></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/East%20Bay%20Weihnachtsmarkt%20Event%20Overview.docx?d=weac1501247864a16a4dabc0584940c5e&amp;csf=1&amp;web=1&amp;e=KEhn9N" rel="noopener noreferrer" target="_blank">Event Overview</a></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Weihnachtsmarkt%20Transition%20Guide.docx?d=w9b8e9bbe6f5f475a9c1c342858cdd37a&amp;csf=1&amp;web=1&amp;e=VfTsuz" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li>
+<li class="event-title"><strong>🎭 Fasching</strong></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/Fasching%20Event%20Overview.docx?d=w6b76aa0951f14ac79da0603f98d3f065&amp;csf=1&amp;web=1&amp;e=Lydo8W" rel="noopener noreferrer" target="_blank">Event Overview</a></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Fasching%20Transition%20Guide.docx?d=wde13141e42644ecda667b6c6e5800680&amp;csf=1&amp;web=1&amp;e=1XQbCQ" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li>
+<li class="event-title"><strong>🏃 Sportfest</strong></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/Sportfest%20Event%20Overview.docx?d=wfbc5bb76bb6b47b2968f1c0eeb7df431&amp;csf=1&amp;web=1&amp;e=bphTsI" rel="noopener noreferrer" target="_blank">Event Overview</a></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Sportfest%20Transition%20Guide.docx?d=w8c0de887d4d545f1906a99bce4512edd&amp;csf=1&amp;web=1&amp;e=qIchIz" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li>
+<li class="event-title"><strong>☀️ Sommerfest</strong></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Event%20Overview/Sommerfest%20Event%20Overview.docx?d=wcf041c90c96140148b023d1164694916&amp;csf=1&amp;web=1&amp;e=lCi1hA" rel="noopener noreferrer" target="_blank">Event Overview</a></li><li class="event-link"><a href="https://ebgis.sharepoint.com/:w:/r/sites/AllStaff/Shared%20Documents/Dashboard/Dashboard%20Files/Events/Transition%20Guides%20big%20Events/Sommerfest%20Transtition%20Guide.docx?d=w79d06d6c27b645ac9467de5e6e9d3309&amp;csf=1&amp;web=1&amp;e=aXBgTs" rel="noopener noreferrer" target="_blank">Transition Guide for Chairs</a></li></ul>
 </details>
 <details class="dashboard-card">
 <summary>
@@ -649,7 +670,7 @@
       No matching documents or resources found.
     </div>
 </main>
-<footer class="dashboard-footer">EBGIS Staff Dashboard · School Year 2026–2027 · Version 3.1</footer>
+<footer class="dashboard-footer">EBGIS Staff Dashboard · School Year 2026–2027 · Version 3.2.1</footer>
 <script>
     const searchInput = document.getElementById('searchInput');
     const cards = document.querySelectorAll('.dashboard-card');
